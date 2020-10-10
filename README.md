@@ -20,6 +20,6 @@ Change `\cvHue` definition between 1 and 240 in monochrome mode.
 Wrap the sections with `\begin{multicols}{2}` and `\end{multicols}`.
 
 ## Example outputs
-* [Colored - 1 column](example/resume)
+* [Colored - 1 column](example/resume.pdf)
 * [Monochrome - Purple - partial 2 column](example/resume-monochrome_200.pdf): Hue = 200
 * [Monochrome - Red - partial 2 column](example/resume-monochrome_1.pdf): Hue = 1

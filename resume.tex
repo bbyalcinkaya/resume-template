@@ -1,0 +1,258 @@
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[compact]{titlesec}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{multicol}
+\usepackage{fontawesome}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\usepackage{xifthen}
+
+\usepackage{avant}
+\renewcommand{\familydefault}{\sfdefault} 
+
+\def\monochrome{1}
+\if\monochrome1
+    \def\cvHue{1}
+    \definecolor{nameColor}{HSB}{\cvHue, 100, 200}
+    \definecolor{sectionColor}{HSB}{\cvHue, 50, 100}
+    \definecolor{keyColor}{HSB}{\cvHue, 200, 150}
+    \definecolor{detailColor}{HSB}{\cvHue, 220, 170}
+    \definecolor{iconColor}{HSB}{\cvHue, 240, 220}
+\else
+    \definecolor{nameColor}{HSB}{160, 150, 200}
+    \definecolor{sectionColor}{HSB}{160, 150, 200}
+    \definecolor{keyColor}{HSB}{160, 120, 220}
+    \definecolor{detailColor}{HSB}{20, 240, 200}
+    \definecolor{iconColor}{HSB}{20, 180, 240}
+\fi
+
+\newcommand{\emdetail}[1]{{\color{detailColor} #1}}
+\newcommand{\emkey}[1]{{\color{keyColor} #1}}
+
+\newcommand{\iconMarker}{{\color{iconColor}\faMapMarker}}
+\newcommand{\iconMail}{{\color{iconColor}\faEnvelope}}
+\newcommand{\iconGithub}{{\color{iconColor}\faGithub}}
+\newcommand{\iconLink}{{\color{iconColor}\faLink}}
+\newcommand{\iconLinkedin}{{\color{iconColor}\faLinkedin}}
+\newcommand{\iconPhone}{{\color{iconColor}\faPhone}}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{3pt}\scshape\raggedright\large
+  \color{sectionColor}
+  \bfseries
+}{}{0em}{}[\color{black}\titlerule ]
+
+%-------------------------
+% Custom commands
+
+\newcommand{\cvItem}[2][]{
+    \ifthenelse{\equal{#1}{}}
+    { \item\scriptsize{{ #2 }} }
+    { \item\scriptsize{\textbf{#1}{: #2 }} }
+}
+
+% \cvSubsection{place}{location}{content}
+\newcommand{\cvSubsection}[3]{
+    \vspace{+1pt}
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \small{\textbf{#1}} & \small{#2}
+    \end{tabular*}
+    {#3}
+}
+% \cvSubsectionContent{title}{date}{detail}
+\newcommand{\cvSubsectionContent}[3]{
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{\textit{\footnotesize \color{keyColor} #1}} &
+        \textit{\scriptsize \textcolor{detailColor}{#2}} \\
+    \end{tabular*}
+    {\scriptsize{#3}}
+}
+
+
+\renewcommand{\labelitemi}{\color{iconColor}\textbullet}
+
+
+\newcommand{\cvItemListStart}{
+    \begin{itemize}[leftmargin=*,itemsep=-2pt,topsep=2pt]
+}
+\newcommand{\cvItemListEnd}{\end{itemize}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING-----------------
+{
+\textbf{\color{nameColor} \huge Burak Bilge Yalçınkaya} 
+\vskip 5pt
+\footnotesize
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l}
+  \iconPhone\hspace{0.3em} +90-77-777-4444 
+  &  \iconGithub\hspace{0.3em}  
+    \href{http://github.com/bbyalcinkaya}
+    {bbyalcinkaya}\\
+  
+  \iconMarker \hspace{0.3em} Gothenburg/Sweden 
+  & \iconLinkedin\hspace{0.3em} \href{https://www.linkedin.com/in/bbyalcinkaya/}{bbyalcinkaya} \\
+    
+  \iconMail \hspace{0.3em} 
+  \href{mailto:bby123456789@acme.com}
+    {bby123456789@acme.com} 
+    & \iconLink\hspace{0.3em} \href{https://bbyalcinkaya.github.io}
+    {bbyalcinkaya.github.io} \\ 
+\end{tabular*}
+}
+%\section{Objective}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+    \cvSubsection{Chalmers University of Technology}{Gothenburg, Sweden}{
+        \cvSubsectionContent{MSc in Computer Science}{2020 -- Present}{}
+    }
+    
+    \cvSubsection{Istanbul Technical University}{Istanbul, Turkey}{
+        \cvSubsectionContent
+            {BSc in Computer Engineering}{2015 -- 2020}{}
+    }
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+
+\cvSubsection{ERSTREAM}{Istanbul, Turkey}{
+    \cvSubsectionContent
+    {Software Development Intern}{Mar. 2020 -- Apr. 2020}{
+        \cvItemListStart
+        \cvItem{Lorem ipsum dolor sit amet, \textbf{NGINX modules} consectetur adipiscing elit.}
+        \cvItem{
+             Aenean volutpat nulla quam, sed rhoncus diam condimentum using \textbf{C}.
+        }
+        \cvItem{
+         Lorem ipsum dolor nulla quam, sed rhoncus diam condimentum using \textbf{C} and \textbf{Go}.
+        }
+        \cvItemListEnd
+    }
+}
+    
+\cvSubsection
+{Proente Automation}{Istanbul, Turkey}
+{
+    \cvSubsectionContent{Back-end Developer (Part-time)}
+    {Sep. 2018 -- Sep. 2019}
+    {
+    \cvItemListStart
+        \cvItem{
+            Etiam vel metus ultricies, vestibulum massa non, malesuada est.
+        }
+        \cvItem{
+            Sed aliquam sapien a purus ultrices sollicitudin. In vel iaculis est using \textbf{NodeJS}, \textbf{PostgreSQL}, \textbf{Redis}, and \textbf{RabbitMQ}.
+        }
+        \cvItem{
+            Mauris non ligula at \emdetail{nunc blandit ultrices} eu eu urna. 
+        }
+        \cvItem{
+            In hac habitasse platea dictumst. Vivamus dignissim, purus in iaculis. 
+        }
+    \cvItemListEnd
+    }
+    \cvSubsectionContent
+    {Software Development Intern}
+    {July 2018 -- Sep. 2018}
+    {
+    \cvItemListStart
+        \cvItem{
+            Developed a ante elementum, pharetra purus id, eleifend tellus using \textbf{NodeJS, Redis, CouchDB, and Docker}.
+        }
+      \cvItemListEnd
+    }
+}
+    
+
+
+%\begin{multicols}{2}
+%-----------PROJECTS-----------------
+\section{Projects}
+  \cvItemListStart
+    \cvItem[Logger as a Service]
+    {
+        Fusce convallis velit eu egestas efficitur. In semper in justo non vestibulum. 
+        \textbf{(Go, Grafana, RabbitMQ, Redis)}.
+    }
+    
+    \cvItem[Resume Template]
+    {
+        Nullam dictum, felis viverra suscipit malesuada, sapien nunc fermentum turpis, porttitor ornare quam tortor venenatis massa. Suspendisse sit \textbf{amet feugiat ipsum}, eget tempus elit. Donec finibus vel est in interdum. Nulla tincidunt lacus tincidunt  \emdetail{diam porta consequat}. In eget viverra nisi. 
+        \textbf{(Latex)}.
+    }
+    \cvItem[Tokmak Telegram Bot]
+    {
+        In hac habitasse platea dictumst. Vivamus dignissim, purus in iaculis interdum, neque lacus congue lectus, eu facilisis nunc nisi a justo. Morbi interdum hendrerit nisi, non pellentesque nisi gravida vel. \textbf{(NodeJS, Express.js, MongoDB, Telegram Bot API)}.
+    }
+    \cvItem[OSman]
+    {
+        In hac habitasse platea dictumst. Vivamus dignissim, purus in iaculis interdum, neque lacus congue lectus, eu facilisis nunc nisi a justo. Morbi interdum hendrerit nisi, non pellentesque nisi gravida vel. \textbf{(Markdown)}.
+    }
+  \cvItemListEnd
+
+%-------------------------------------------
+\begin{multicols}{2}
+\section{Honours \& Awards}
+ 
+\cvItemListStart
+    \cvItem[Dean's Honor List]{2016-2020}
+    
+    \cvItem{Fusce convallis velit eu egestas efficitur. In semper in justo non vestibulum. Maecenas eget enim leo.}
+    
+    \cvItem[Lorem ipsum 2018 - 3rd place]{Etiam varius, \emdetail{ipsum sed tincidunt} porttitor, risus sem volutpat dolor, \textbf{Lorem}.}
+    
+    \cvItem[Suspendisse ipsum - 2nd place]{ In semper in justo non vestibulum. }
+    \cvItem{Fusce convallis velit eu egestas efficitur. In semper in justo non vestibulum. Maecenas eget enim leo.}
+    
+\cvItemListEnd
+%-------------------------------------------
+\section{Voluntary Activities \& Hobbies}
+  \cvItemListStart
+    
+    \cvItem{Fusce convallis velit eu egestas efficitur. In semper in justo non vestibulum. Maecenas eget enim leo.}
+    
+    \cvItem[Lorem ipsum 2018 - 3rd place]{Etiam varius, ipsum sed tincidunt porttitor, risus sem volutpat dolor, \textbf{Lorem}.}
+    
+    \cvItem[Suspendisse ipsum - 2nd place]{ In semper in justo non vestibulum. }
+    \cvItem{Fusce convallis velit eu egestas efficitur. In semper in \emdetail{justo non vestibulum}. Maecenas eget enim leo.}
+    
+  \cvItemListEnd
+\end{multicols}
+
+    
+\end{document}
+ 

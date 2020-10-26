@@ -1,4 +1,3 @@
-
 \documentclass[a4paper,12pt]{article}
 \usepackage[compact]{titlesec}
 \usepackage{latexsym}
@@ -25,9 +24,9 @@
 \usepackage{avant}
 \renewcommand{\familydefault}{\sfdefault} 
 
-\def\monochrome{1}
+\def\monochrome{0}
 \if\monochrome1
-    \def\cvHue{1}
+    \def\cvHue{200}
     \definecolor{nameColor}{HSB}{\cvHue, 100, 200}
     \definecolor{sectionColor}{HSB}{\cvHue, 50, 100}
     \definecolor{keyColor}{HSB}{\cvHue, 200, 150}
@@ -66,40 +65,42 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{3pt}\scshape\raggedright\large
+  \vspace{3pt}\scshape\raggedright
   \color{sectionColor}
   \bfseries
+  \large
 }{}{0em}{}[\color{black}\titlerule ]
 
 %-------------------------
 % Custom commands
 
 \newcommand{\cvItem}[2][]{
-    \ifthenelse{\equal{#1}{}}
-    { \item\scriptsize{{ #2 }} }
-    { \item\scriptsize{\textbf{#1}{: #2 }} }
+    \item{
+        \ifthenelse{\equal{#1}{}}
+            {#2}
+            {\textbf{#1}: #2 }
+    }
 }
 
 % \cvSubsection{place}{location}{content}
 \newcommand{\cvSubsection}[3]{
     \vspace{+1pt}
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \small{\textbf{#1}} & \small{#2}
+      {\normalsize \textbf{#1}} & {\small #2}
     \end{tabular*}
     {#3}
+    
 }
 % \cvSubsectionContent{title}{date}{detail}
 \newcommand{\cvSubsectionContent}[3]{
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \textbf{\textit{\footnotesize \color{keyColor} #1}} &
-        \textit{\scriptsize \textcolor{detailColor}{#2}} \\
+        \textbf{\textit{\small \color{keyColor} #1}} &
+        \textit{\color{detailColor}{ #2}} \\
     \end{tabular*}
-    {\scriptsize{#3}}
+    {#3}
 }
 
-
 \renewcommand{\labelitemi}{\color{iconColor}\textbullet}
-
 
 \newcommand{\cvItemListStart}{
     \begin{itemize}[leftmargin=*,itemsep=-2pt,topsep=2pt]
@@ -112,10 +113,10 @@
 \begin{document}
 
 %----------HEADING-----------------
+\scriptsize
 {
 \textbf{\color{nameColor} \huge Burak Bilge Yalçınkaya} 
 \vskip 5pt
-\footnotesize
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l}
   \iconPhone\hspace{0.3em} +90-77-777-4444 
   &  \iconGithub\hspace{0.3em}  
@@ -255,4 +256,3 @@
 
     
 \end{document}
- 

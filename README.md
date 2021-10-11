@@ -1,5 +1,5 @@
 # Resume Template
-Resume template with colored and monochrome options.
+Resume template with colored and monochrome color schemes.
 ## Features
 ### Colored or Monochrome
 Set `\monochrome` flag to select monochrome.

@@ -2,14 +2,14 @@
 Resume template with colored and monochrome options.
 ## Features
 ### Colored or Monochrome
-Change `\monochrome` definition to select colored or monochrome.
+Set `\monochrome` flag to select monochrome.
 
 ```
 \def\monochrome{0} % colored
 \def\monochrome{1} % monochrome
 ```
 
-Change `\cvHue` definition between 1 and 240 in monochrome mode.
+Change `\cvHue` value between 1 and 240 in monochrome mode.
 
 ```
 \def\cvHue{200} % purple
